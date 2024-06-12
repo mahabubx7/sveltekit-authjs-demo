@@ -72,7 +72,15 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
     // Facebook,
     GitHub,
     // GitLab,
-    Google,
+    Google({
+      authorization: {
+        params: {
+          access_type: "offline",
+          prompt: "consent",
+          scope: "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid",
+        },
+      }
+    }),
     // Hubspot,
     // Keycloak,
     // LinkedIn,
